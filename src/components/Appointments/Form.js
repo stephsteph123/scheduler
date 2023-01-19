@@ -1,13 +1,18 @@
 import React from "react";
 import "components/InterviewerList";
 import "components/Button";
+import React, { useState } from 'react';
 
-export default function Form() {
+export default function Form(props) {
+
+}
+const [student, setStudent] = useState(props.student || "");
+const [interviewer, setInterviewer] = useState(props.interviewer || null);
   return(
   <div classNames="newForm">
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off">
+        <form onSubmit={event => event.preventDefault()}></form>>
       <input
         className="appointment__create-input text--semi-bold"
         name="name"
@@ -31,5 +36,4 @@ export default function Form() {
   </section>
 </main>
 </div>
- )
-}
+  )
