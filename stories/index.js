@@ -9,6 +9,12 @@ import Button from "components/Button";
 import DayListItem  from "components/DayListItem";
 import DayList from 'components/DayList';
 import Appointment from "components/Appointment/index.js";
+import Empty from "components/Appointment/Empty.js";
+import Header from "components/Appointment/Header.js";
+import Show from "components/Appointment/Show.js";
+import Confirm from "components/Appointment/Confirm.js";
+import Status from "components/Appointment/Status.js";
+import Error from "components/Appointment/Error.js";
 
 storiesOf("Button", module)
   .addParameters({
@@ -138,4 +144,6 @@ storiesOf("Button", module)
     backgrounds: [{ name: "white", value: "#fff", default: true }]
   })
   .add("Appointment", () => <Appointment />)
-  .add("Appointment with Time", () => <Appointment time="12pm" />);
+  .add("Appointment with Time", () => <Appointment time="12pm" />)
+  .add("Header", () => <Header time="12pm" />)
+  .add("Empty", () => <Empty onAdd={action("onAdd")}/>);
