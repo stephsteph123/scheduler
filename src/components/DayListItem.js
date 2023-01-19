@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 
 import "components/DayListItem.scss";
+import formatSpots from "components/helperFunctions.js";
 
 export default function DayListItem(props) {
   const dayClass = classNames("day-list", {
@@ -12,33 +13,11 @@ export default function DayListItem(props) {
   });
 
   return (
-    <div className={dayClass}>
-    <li onClick={() => props.setDay(props.name)}>
-      <h2 className="text--regular">{props.name}</h2>
-      <h3 className="text--light">{props.spots} spots remaining</h3>
-    </li>
-    </div>
+      <li className={dayClass} onClick={() => props.setDay(props.name)} selected={props.selected}>
+        <h2 className="text--regular">{props.name}</h2> 
+        <h3 className="text--light">{props.formatSpots()}</h3>
+        </li>
   );
 };
 
-// const formatSports = function(props) {
-//   if (props.spots = 0) {
-//     return (
-//     <div className={dayClass}>
-//     <li onClick={() => props.setDay(props.name)}>
-//       <h2 className="text--regular">{props.name}</h2>
-//       <h3 className="text--light"> no spots remaining</h3>
-//     </li>
-//     </div>
-//     );
-//   }
-//   if (props.spots = 1) {
-//     return (
-//     <div className={dayClass}>
-//     <li onClick={() => props.setDay(props.name)}>
-//       <h2 className="text--regular">{props.name}</h2>
-//       <h3 className="text--light"> 1 spot remaining</h3>
-//     </li>
-//     </div>
-//     );
-//   }
+
