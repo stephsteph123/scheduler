@@ -158,7 +158,6 @@ storiesOf("Button", module)
   
   .add("Appointment Empty", () => (
     <Fragment>
-      <Header></Header>
       <Appointment id={1} time="4pm" />
       <Appointment time="5pm" />
     </Fragment>
