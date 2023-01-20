@@ -3,7 +3,6 @@ import classNames from "classnames";
 
 export default function InterviewerItem () {
 
-}
 return (
 <li className="interviewers__item">
   <img
@@ -14,3 +13,4 @@ return (
   Sylvia Palmer
 </li>
 )
+}
