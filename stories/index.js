@@ -8,11 +8,12 @@ import "index.scss";
 import Button from "components/Button";
 import DayListItem  from "components/DayListItem";
 import DayList from 'components/DayList';
+import InterviewerListItem from "components/InterviewerListItem";
 // import Appointment from "components/Appointment/index.js";
 // import Empty from "components/Appointment/Empty.js";
 // import Header from "components/Appointment/Header.js";
 // import Show from "components/Appointment/Show.js";
-// import Confirm from "components/Appointment/Confirm.js";
+import Confirm from "components/Appointments/Confirm";
 // import Status from "components/Appointment/Status.js";
 // import Error from "components/Appointment/Error.js";
 
@@ -102,10 +103,9 @@ storiesOf("Button", module)
       ))
       .add("Clickable", () => (
         <InterviewerListItem
-          id={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
-          setInterviewer={action("setInterviewer")}
+          setInterviewer={() => action("setInterviewer")(interviewer.id)}
         />
       ));
 

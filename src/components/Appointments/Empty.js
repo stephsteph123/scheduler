@@ -1,12 +1,15 @@
 import React from "react";
 import classNames from "classnames";
 
-export default function Empty(props) {
-  const appointment__add = className('')
+import "components/Appointment/styles.scss";
 
-  };
+export default function Empty(props) {
+  const emptyClass = classNames('', {
+    "appointment":props,
+    "appointment-button":props.danger,
+  });
 return (
-<main className="appointment__add">
+<main className={emptyClass}>
   <img
     className="appointment__add-button"
     src="images/add.png"
@@ -15,3 +18,4 @@ return (
   />
 </main>
 )
+}

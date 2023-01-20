@@ -1,11 +1,15 @@
 import React from "react";
 import classnames from "classnames";
 
-export default function Show(props) {
+import "components/Appointment/styles.scss";
 
-}
+export default function Show(props) {
+  const showClass = classnames ("", {
+    "appointment__card appointment__card--show":props
+
+  })
 return (
-<main className="appointment__card appointment__card--show">
+<main className={showClass}>
   <section className="appointment__card-left">
     <h2 className="text--regular">Lydia Miller-Jones</h2>
     <section className="interviewer">
@@ -29,3 +33,4 @@ return (
   </section>
 </main>
 )
+}
