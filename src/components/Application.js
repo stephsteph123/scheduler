@@ -5,6 +5,12 @@ import "components/Application.scss";
 import DayList from "components/DayList.js"
 import Appointment from "./Appointment";
 
+const cancelInterview = function (props) {
+  if (props === appointments[id]) {
+    interview = null;
+  }
+}
+
 export default function Application(props) {
   const [day, setDay] = useState([]);
   useEffect(() => {
