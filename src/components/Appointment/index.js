@@ -7,17 +7,20 @@ import Edit from "components/Appointment/Form.js";
 import "components/Appointment/styles.scss"
 
 export default function Appointment(props) {
-  // function save(name, interviewer) {
-  //   const interview = {
-  //     student: name,
-  //     interviewer
-  //   };
-  if(props.interview) {
+  const {interview,bookInterview,time} = props//destruct
+  function save(name, interviewer) {
+    const interview = {
+      student:name,
+      interviewer
+    };
+    bookInterview()
+  };
+  if(interview) {
   return (
     <Fragment>
     <Show></Show>
-    <Edit></Edit>
-    <Header>{props.time}</Header>
+    <Edit interviewers={props.interviewers}/>
+    <Header>{time}</Header>
     <article className="appointment">{Empty}</article>
     </Fragment>
   )
@@ -25,8 +28,8 @@ export default function Appointment(props) {
   return (
     <Fragment>
     <Empty></Empty>
-    <Edit></Edit>
-    <Header>{props.time}</Header>
+    <Edit interviewers={props.interviewers} />
+    <Header>{time}</Header>
     <article className="appointment">{Empty}</article>
     </Fragment>
   )

@@ -5,36 +5,48 @@ import "components/Application.scss";
 import DayList from "components/DayList.js"
 import Appointment from "./Appointment";
 
-// const cancelInterview = function (props) {
-//   if (props === appointments[id]) {
-//     interview = null;
-//   }
-// }
+const cancelInterview = function (props) {
+  if (props === appointments[id]) {
+    interview = null;
+  }
+}
 
 export default function Application(props) {
   const [day, setDay] = useState([]);
-  // useEffect(() => {
-  //   axios.get("/api/days").then((response) => {
-  //     console.log(response);
-  //   });
-  // });
-  // function bookInterview(id, interview) {
-  //   axios.put("/api/appointments/:id").then((response) => {
-  //     console.log(response);
-  //     .then(setDay())
-  //   const appointment = {
-  //     ...state.appointments[id],
-  //     interview: { ...interview }
-  //   };
-  //   const appointments = {
-  //     ...state.appointments,
-  //     [id]: appointment
-  //   };
-  //   setState({
-  //     ...state,
-  //     appointments
-  //   })});
-  // }
+  const [state, setState] = useState({
+    day:"Monday",
+    days:[],
+    apppointments:{},
+    interviewers:{}
+  })
+  useEffect(() => {
+    axios.get("/api/days").then((response) => {
+      console.log(response);
+    });
+  });
+
+  function bookInterview(id, interview) {
+    axios.put("/api/appointments/:id").then((response) => {
+      console.log(response);
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    setState( prev => ({
+      ...prev,
+      apppointments
+    }))
+    });
+  }
+  //helper function to do object interviwers to an array of interviwer ids..(day)
+  //map over for daily interviwers, appointments.
   return (
     <main className="layout">
       <section className="sidebar">
@@ -61,7 +73,8 @@ export default function Application(props) {
       <Appointment
       key={Appointment.id} 
       {...Appointment}
-      value={bookInterview(props)}
+      bookInterview={bookInterview}
+      interviewers={[]}
       />
       <Appointment key="last" time="5pm" />
       </section>
