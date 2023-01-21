@@ -1,30 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import "components/Application.scss";
 import DayList from "components/DayList.js"
 import Appointment from "./Appointment";
 
-
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
-
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
+  const [day, setDay] = useState([]);
+  useEffect(() => {
+    axios.get("/api/days").then((response) => {
+      console.log(response);
+    });
+  });
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    setState({
+      ...state,
+      appointments
+    });
+  }
   return (
     <main className="layout">
       <section className="sidebar">
@@ -48,9 +49,10 @@ export default function Application(props) {
 />
       </section>
       <section className="schedule">
-      <Appointment 
+      <Appointment
       key={Appointment.id} 
-      {...Appointment} 
+      {...Appointment}
+      value={bookInterview(props)}
       />
       <Appointment key="last" time="5pm" />
       </section>

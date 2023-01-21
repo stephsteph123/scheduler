@@ -6,6 +6,13 @@ import Show from "components/Appointment/Show.js";
 import "components/Appointment/styles.scss"
 
 export default function Appointment(props) {
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+    props.bookInterview
+  }
   if(props.interview) {
   return (
     <Fragment>
