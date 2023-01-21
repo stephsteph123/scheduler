@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import InterviewerList from "components/InterviewerList";
 import Button from 'components/Button';
-import Appointment from 'components/index.js';
+// import Appointment from 'components/index.js';
 
 export default function Form(props) {
 const [student, setStudent] = useState(props.student || "");
 const [interviewer, setInterviewer] = useState(props.interviewer || null);
+
 const reset = function () {
   setStudent("")
   setInterviewer(null)
@@ -17,21 +18,22 @@ const cancel = function () {
   return (
 <main className="appointment__card appointment__card--create">
   <section className="appointment__card-left">
-    <form autoComplete="off" onSubmit={event => event.preventDefault()}>
+    <form autoComplete="off">
+    {/* onSubmit={event => event.preventDefault()} */}
       <input
         className="appointment__create-input text--semi-bold"
         name="name"
         type="text"
         placeholder="Enter Student Name"
         value={student}
-        onChange={() => setStudent(student)}
+        onChange={(event) => setStudent(event.target.value)}
       />
     </form>
     <InterviewerList 
     interviewers={props.interviewers}
-      value={interviewer}
-      onChange={() => setInterviewer(interviewer)}
-  
+    interviewer={interviewer}
+    onChange={() => setInterviewer(interviewer)}
+
     />
   </section>
   <section className="appointment__card-right">

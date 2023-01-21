@@ -5,36 +5,36 @@ import "components/Application.scss";
 import DayList from "components/DayList.js"
 import Appointment from "./Appointment";
 
-const cancelInterview = function (props) {
-  if (props === appointments[id]) {
-    interview = null;
-  }
-}
+// const cancelInterview = function (props) {
+//   if (props === appointments[id]) {
+//     interview = null;
+//   }
+// }
 
 export default function Application(props) {
   const [day, setDay] = useState([]);
-  useEffect(() => {
-    axios.get("/api/days").then((response) => {
-      console.log(response);
-    });
-  });
-  function bookInterview(id, interview) {
-    axios.put("/api/appointments/:id").then((response) => {
-      console.log(response);
-      .then(setDay())
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview }
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
-    setState({
-      ...state,
-      appointments
-    })});
-  }
+  // useEffect(() => {
+  //   axios.get("/api/days").then((response) => {
+  //     console.log(response);
+  //   });
+  // });
+  // function bookInterview(id, interview) {
+  //   axios.put("/api/appointments/:id").then((response) => {
+  //     console.log(response);
+  //     .then(setDay())
+  //   const appointment = {
+  //     ...state.appointments[id],
+  //     interview: { ...interview }
+  //   };
+  //   const appointments = {
+  //     ...state.appointments,
+  //     [id]: appointment
+  //   };
+  //   setState({
+  //     ...state,
+  //     appointments
+  //   })});
+  // }
   return (
     <main className="layout">
       <section className="sidebar">
@@ -67,5 +67,4 @@ export default function Application(props) {
       </section>
     </main>
   );
-}
 }

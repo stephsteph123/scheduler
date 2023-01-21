@@ -153,7 +153,7 @@ storiesOf("Button", module)
   .add("Status", () => <Status />)
   .add("Confirm", () => <Confirm onConfirm={action("onConfirm")} onCancel={action("onCancel")} message="Delete the appointment?"/>)
   .add("Error", () => <Error />)
-  .add('Edit', () => <Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")} interviewer={interviewers}/>)
+  .add('Edit', () => <Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")}/>)
   .add('Create', () => <Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")}/>)
   
   .add("Appointment Empty", () => (
