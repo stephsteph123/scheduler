@@ -118,10 +118,6 @@ storiesOf("Button", module)
         { id: 4, name: "Cohana Roy", avatar: "https://i.imgur.com/FK8V841.jpg" },
         { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" }
       ];
-
-      const students = [
-        {id: 1, name:"Steph"}
-      ]
       
       storiesOf("InterviewerList", module)
       .addParameters({
@@ -157,7 +153,7 @@ storiesOf("Button", module)
   .add("Status", () => <Status />)
   .add("Confirm", () => <Confirm onConfirm={action("onConfirm")} onCancel={action("onCancel")} message="Delete the appointment?"/>)
   .add("Error", () => <Error />)
-  .add('Edit', () => <Form interviewers={interviewers} interviewer={interviewer.id} student={students.name} onSave={action("onSave")} onCancel={action("onCancel")}/>)
+  .add('Edit', () => <Form interviewers={interviewers} interviewer={interviewer.id} name="Bob" onSave={action("onSave")} onCancel={action("onCancel")}/>)
   .add('Create', () => <Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")}/>)
   
   .add("Appointment Empty", () => (

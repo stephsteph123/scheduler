@@ -10,7 +10,7 @@ const [error, setError] = useState("");
 
 const reset = function () {
   setName("");
-  setError("";)
+  setError("");
   setInterviewer(null);
 }
 const cancel = function () {
@@ -37,7 +37,7 @@ function validate() {
         name="name"
         type="text"
         placeholder="Enter Student Name"
-        value={student}
+        value={name}
         onChange={event => {
           setName(event.target.value);
         }}
@@ -49,7 +49,7 @@ function validate() {
     interviewers={props.interviewers}
     value={interviewer}
     onChange={setInterviewer}
-    
+
     />
   </section>
   <section className="appointment__card-right">
