@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import InterviewerList from "components/InterviewerList";
 import Button from 'components/Button';
 
@@ -8,8 +9,9 @@ const [interviewer, setInterviewer] = useState(props.interviewer || null);
 const [error, setError] = useState("");
 
 const reset = function () {
-  setStudent("")
-  setInterviewer(null)
+  setName("");
+  setError("";)
+  setInterviewer(null);
 }
 const cancel = function () {
   reset();
@@ -21,10 +23,8 @@ function validate() {
     setError("Student name cannot be blank");
     return;
   }
-  if (interviewer === null) {
-    setError("Please select an interviewer");
-    return;
-  }
+
+  setError("");
   props.onSave(name, interviewer);
 }
 
@@ -38,22 +38,24 @@ function validate() {
         type="text"
         placeholder="Enter Student Name"
         value={student}
-        onChange={(event) => setName(event.target.value)}
+        onChange={event => {
+          setName(event.target.value);
+        }}
         data-testid="student-name-input"
       />
-      <section className="appointment__validation">{error}</section>
     </form>
+    <section className="appointment__validation">{error}</section>
     <InterviewerList 
     interviewers={props.interviewers}
     value={interviewer}
     onChange={setInterviewer}
-
+    
     />
   </section>
   <section className="appointment__card-right">
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
-      <Button confirm onClick={props.onSave}>Save</Button>
+      <Button confirm onClick={validate}>Save</Button>
     </section>
   </section>
 </main>
