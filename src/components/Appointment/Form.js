@@ -25,7 +25,6 @@ function validate() {
     setError("Please select an interviewer");
     return;
   }
-
   props.onSave(name, interviewer);
 }
 
