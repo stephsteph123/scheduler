@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import "components/Application.scss";
+
 import DayList from "components/DayList.js"
 import Appointment from "./Appointment";
+
+import { getAppointmentsForDay } from "helpers/selectors";
 
 const cancelInterview = function (props) {
   if (props === appointments[id]) {
@@ -60,7 +63,9 @@ export default function Application(props) {
 <DayList
   days={state.days}
   value={state.day}
-  onChange={...}
+  setDay={setDay}
+  bookInterview={bookInterview}
+  cancelInterview={cancelInterview}
 />
 </nav>
 <img
@@ -70,13 +75,14 @@ export default function Application(props) {
 />
       </section>
       <section className="schedule">
-      <Appointment
+        <Appointment />
+      {/* <Appointment
       key={Appointment.id} 
       {...Appointment}
       bookInterview={bookInterview}
       interviewers={[]}
-      />
-      <Appointment key="last" time="5pm" />
+      /> */}
+      <Appointment key="last" time="5pm" bookInterview={bookInterview} cancelInterview={cancelInterview}/>
       </section>
     </main>
   );
