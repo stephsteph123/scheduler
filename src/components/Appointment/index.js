@@ -1,4 +1,6 @@
-import React, { useEffect, Fragment } from "react";
+import React from "react";
+import "./styles.scss";
+
 import Empty from "components/Appointment/Empty.js";
 import Header from "components/Appointment/Header.js";
 import Show from "components/Appointment/Show.js";
@@ -6,10 +8,9 @@ import Edit from "components/Appointment/Form.js";
 import Create from "components/Appointment/Form.js";
 import Confirm from "./Confirm";
 import Error from "./Error";
-
-import "components/Appointment/styles.scss"
-import useVisualMode from "hooks/useVisualMode";
 import Status from "./Status";
+
+import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props) {
 
@@ -23,41 +24,29 @@ export default function Appointment(props) {
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
 
-  //destructure useVisualMode elements
   const {mode, transition, back} = useVisualMode (
   props.interview ? SHOW : EMPTY
   );
-
-  // useEffect (() => {
-  //   if (props.interview && mode === EMPTY) {
-  //     transition(SHOW);
-  //   }
-
-  //   if (!props.interview && mode === SHOW) {
-  //     transition(EMPTY);}
-  //   }, [mode, transition, props.interview])
-
-  const {interview,bookInterview,time} = props//destruct
   function save(name, interviewer) {
     const interview = {
       student:name,
       interviewer
     };
 
-    Transition(SAVING);
+    transition(SAVING);
 
     props
     .bookInterview(props.id, interview)
     .then(() => transition(SHOW))
     .catch(error => transition(ERROR_SAVE));
-  };
+  }
 
-  function destory(event) {
+  function destory() {
     transition(DELETING);
     props
     .cancelInterview(props.id)
     .then (() => transition(EMPTY))
-    .catch(error => transition(ERROR_DELET, true));
+    .catch(() => transition(ERROR_DELETE, true));
   }
 
   return (
@@ -66,18 +55,17 @@ export default function Appointment(props) {
     {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
     {mode === SHOW && (
     <Show
-    student={interview.student}
     interview={props.interview}
     onDelete={() => transition(CONFIRM)}
     onEdit={() => transition(EDIT)}
     />
     )}
     {mode === CREATE && (
-        <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
+      <Create interviewers={props.interviewers} bookInterview={props.bookInterview} onCancel={back} onSave={save} />
     )}
     {mode === EDIT && (
-      <Form
-      name={interview.student}
+      <Edit
+      name={props.interview.student}
       interviewers={props.interviewers} 
       onCancel={back} 
       onSave={save} 

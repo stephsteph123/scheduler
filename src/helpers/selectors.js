@@ -1,4 +1,4 @@
-import Appointment from "components/Appointment";
+// import Appointment from "components/Appointment";
 
 export function getAppointmentsForDay(state, name) {
   const filteredDays = state.days.filter(day => day.name === name)
