@@ -4,7 +4,6 @@ import classNames from "classnames";
 import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
-  console.log(props)
   const dayClass = classNames("day-list", {
     "day-list__item" :props,
     "day-list__item--selected": props.selected,

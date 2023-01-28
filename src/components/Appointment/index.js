@@ -67,6 +67,7 @@ export default function Appointment(props) {
       <Edit
       name={props.interview.student}
       interviewers={props.interviewers} 
+      interviewer={props.interview.interviewer.id} 
       onCancel={back} 
       onSave={save} 
       />

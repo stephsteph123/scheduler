@@ -153,7 +153,7 @@ storiesOf("Button", module)
   .add("Status", () => <Status />)
   .add("Confirm", () => <Confirm onConfirm={action("onConfirm")} onCancel={action("onCancel")} message="Delete the appointment?"/>)
   .add("Error", () => <Error />)
-  .add('Edit', () => <Form interviewers={interviewers} interviewer={interviewer.id} name="Bob" onSave={action("onSave")} onCancel={action("onCancel")}/>)
+  .add('Edit', () => <Form interviewers={interviewers} interviewer={interviewer.id} onSave={action("onSave")} onCancel={action("onCancel")}/>)
   .add('Create', () => <Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")}/>)
   
   .add("Appointment Empty", () => (
@@ -168,7 +168,7 @@ storiesOf("Button", module)
       interviewers={interviewers}
         id={1}
         time="4pm"
-        interview={{ student: "Lydia Miller-Jones", interviewer }}
+        interview={{ student:"", interviewer }}
       />
       <Appointment time="5pm" interviewers={interviewers} />
     </Fragment>

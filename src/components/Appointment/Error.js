@@ -15,10 +15,11 @@ return (
 <main className={errorClass}>
   <section className="appointment__error-message">
     <h1 className="text--semi-bold">Error</h1>
-    <h3 className="text--light">Could not delete appointment</h3>
+    <h3 className="text--light">{props.message}</h3>
   </section>
   <img
     className="appointment__error-close"
+    onClick={props.onClose}
     src="images/close.png"
     alt="Close"
   />
