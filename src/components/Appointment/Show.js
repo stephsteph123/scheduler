@@ -2,6 +2,7 @@ import React from "react";
 
 import "components/Appointment/styles.scss";
 
+// layout within the application - parent is appointment/index.js
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">

@@ -1,6 +1,7 @@
 import React from "react";
 import DayListItem from "./DayListItem";
 
+// holds details surrounding appointments - parent of DayListItem.js
 export default function DayList(props) {
   return (
     <ul>

@@ -5,6 +5,7 @@ import "components/Application.scss";
 import DayList from "components/DayList.js";
 import Appointment from "./Appointment";
 
+//layout for application - parent is storeies/index.js
 import {
   getAppointmentsForDay,
   getInterview,

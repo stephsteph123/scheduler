@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 import "components/Appointment/styles.scss";
 
+//error format - parent is appointment/index.js
 export default function Error(props) {
   const errorClass = classNames("", {
     appointment: props,

@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 import "components/InterviewerListItem.scss";
 
+// provides details of each interviewer - child of InterviewerList.js
 export default function InterviewerListItem(props) {
   const interviewerClass = classNames("interviewers", {
     interviewers__item: props,

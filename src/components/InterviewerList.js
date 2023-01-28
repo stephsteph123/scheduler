@@ -4,6 +4,7 @@ import React from "react";
 import "components/InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem.js";
 
+// provides list of all interviewers - parent to InterviewListItem
 export default function InterviewerList(props) {
   const interviewers = props.interviewers.map((interviewer) => {
     return (

@@ -3,6 +3,7 @@ import React from "react";
 import "components/Appointment/styles.scss";
 import Button from "components/Button";
 
+//confirm button - parent is appointment/index.js
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">

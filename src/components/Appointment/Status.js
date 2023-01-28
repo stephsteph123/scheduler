@@ -2,6 +2,7 @@ import React from "react";
 
 import "components/Appointment/styles.scss";
 
+// shows status between updates - parent is appointment/index.js
 export default function Status(props) {
   return (
     <main className="appointment__card appointment__card--status">

@@ -12,6 +12,7 @@ import Status from "./Status";
 
 import useVisualMode from "hooks/useVisualMode";
 
+//Renders everything in regards to appointments - parent is application.js
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";

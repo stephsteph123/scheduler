@@ -2,6 +2,7 @@ import React from "react";
 
 import "components/Appointment/styles.scss";
 
+//empty state "+" - parent is appointment/index.js
 export default function Empty(props) {
   return (
     <main className="appointment__add">

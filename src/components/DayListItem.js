@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 import "components/DayListItem.scss";
 
+// provide content such as spots left, interviewer selected - child to DayList
 export default function DayListItem(props) {
   const dayClass = classNames("day-list", {
     "day-list__item": props,
