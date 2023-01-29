@@ -40,14 +40,14 @@ npm run storybook
 ```
 
 ## View
-!['']
+![''](https://github.com/stephsteph123/scheduler/blob/master/docs/Scheduler.View.png)
 _Users can select a day, and then see available and booked timeslots._
 ## Creating an Appointment
-!['']
+![''](https://github.com/stephsteph123/scheduler/blob/master/docs/Scheduler.Create.png)
 _Users can click on the "+" button to add an appointment to the weekly calendar._
 ## Editing an Appointment
-!['']
+![''](https://github.com/stephsteph123/scheduler/blob/master/docs/Schduler.edit.png)
 _Users can click the edit button and update an existing appointment._
 ## Cancelling an Appointment
-!['']
+![''](https://github.com/stephsteph123/scheduler/blob/master/docs/Scheduler.Cancel.png)
 _Users can cancel an appointment by clicking on the trash can icon._
