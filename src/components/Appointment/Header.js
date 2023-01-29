@@ -1,5 +1,6 @@
 import React from "react";
 
+//header html - parent is appointment/index.js
 export default function Header(props) {
   return (
     <header className="appointment__time">
