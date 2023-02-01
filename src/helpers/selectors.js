@@ -8,7 +8,7 @@ export function getAppointmentsForDay(state, name) {
   }
 
   const appointmentPerDay = filteredDays[0].appointments;
-  let filteredAppointments = [];
+  const filteredAppointments = [];
   for (let item of appointmentPerDay) {
     filteredAppointments.push(state.appointments[item]);
   }
@@ -32,7 +32,7 @@ export function getInterviewersForDay(state, name) {
   }
   const interviewersFromDays = filteredDays[0].interviewers;
 
-  let filteredInterviewers = [];
+  const filteredInterviewers = [];
 
   for (let interviewer of interviewersFromDays) {
     filteredInterviewers.push(state.interviewers[interviewer]);
