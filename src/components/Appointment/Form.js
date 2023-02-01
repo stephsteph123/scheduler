@@ -5,7 +5,6 @@ import Button from "components/Button";
 
 //Create and Edit for container - parent is appointment/index.js
 export default function Form(props) {
-  console.log(props);
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
